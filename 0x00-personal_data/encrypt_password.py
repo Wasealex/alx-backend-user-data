@@ -6,6 +6,10 @@ import bcrypt
 
 
 def hash_password(password):
+    """hashing password
+    args [password]
+    to return byte of password
+    """
     # Generate a salt
     salt = bcrypt.gensalt()
 
