@@ -5,7 +5,7 @@ using bycryt
 import bcrypt
 
 
-def hash_password(password):
+def hash_password(password: str) -> bytes:
     """hashing password
     args [password]
     to return byte of password
@@ -20,7 +20,7 @@ def hash_password(password):
     return hashed_password
 
 
-def is_valid(hashed_password, password):
+def is_valid(hashed_password: str, password: str) -> bool:
     """Validate if the provided password matches the hashed password.
         Args:
             hashed_password (bytes): The hashed password.
