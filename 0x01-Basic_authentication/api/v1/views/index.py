@@ -29,5 +29,6 @@ def stats() -> str:
 @app_views.route('/unauthorized', method=['GET'], strict_slashes=False)
 def unauthorized() -> str:
     """unuthorized error show
+    present the str represtation of the error message
     """
     abort(401, description='Unauthorized')
