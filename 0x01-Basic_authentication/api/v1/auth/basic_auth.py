@@ -2,8 +2,11 @@
 """ basic auth module
 """
 import base64
-from api.v1.auth.auth import Auth
+from typing import TypeVar
 
+from flask import request
+from api.v1.auth.auth import Auth
+from models.user import User
 
 class BasicAuth(Auth):
     """BasicAuth class
@@ -50,3 +53,21 @@ class BasicAuth(Auth):
             return (None, None)
         credentials = base64_authorization_header.split(":", 1)
         return (credentials[0], credentials[1])
+
+    def user_object_from_credentials(
+            self,
+              user_email: str, user_pwd: str) -> TypeVar('User'):
+        """user_object_from_credentials method
+        """
+        if user_email is None or user_pwd is None:
+            return None
+        if type(user_email) is not str or type(user_pwd) is not str:
+            return None
+        users = User.search({"email": user_email})
+        if users is None or users == []:
+            return None
+        user = users[0]
+        if not user.is_valid_password(user_pwd):
+            return None
+        return user
+    
