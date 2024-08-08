@@ -32,3 +32,10 @@ def unauthorized() -> str:
     present the str represtation of the error message
     """
     abort(401, description='Unauthorized')
+
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden() -> str:
+    """forbidden error show
+    """
+    abort(403, description='Forbidden')
