@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""user_session module
+"""session database auth module
 """
-from api.v1.auth import SessionExpAuth
+from api.v1.auth.session_exp_auth import SessionExpAuth
 from models.user_session import UserSession
 from datetime import datetime, timedelta
 
