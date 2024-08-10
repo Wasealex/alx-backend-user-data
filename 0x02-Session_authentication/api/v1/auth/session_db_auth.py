@@ -1,4 +1,4 @@
-#!/bin/usr/env python3
+#!/usr/bin/env python3
 """user_session module
 """
 from api.v1.auth import SessionExpAuth
