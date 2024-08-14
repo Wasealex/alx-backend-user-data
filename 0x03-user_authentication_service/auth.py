@@ -16,12 +16,12 @@ def _hash_password(password: str) -> bytes:
 class Auth:
     """Auth class
     """
-    
+
     def __init__(self):
         """Initialize a new Auth instance
         """
         self._db = DB()
-    
+
     def register_user(self, email: str, password: str) -> User:
         """Register a user
         """
