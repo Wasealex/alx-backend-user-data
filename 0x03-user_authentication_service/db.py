@@ -32,7 +32,7 @@ class DB:
 
     def add_user(self, email: str, hashed_password: str) -> User:
         """adds user to the session returns User"""
-        if email is None or hashed_password is None:
+        if not email or not hashed_password:
             return
         user = User(email=email, hashed_password=hashed_password)
         session = self._session
