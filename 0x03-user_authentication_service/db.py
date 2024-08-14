@@ -3,7 +3,7 @@
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker 
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import NoResultFound, InvalidRequestError
 from sqlalchemy.orm.session import Session
 from user import Base, User
@@ -31,6 +31,7 @@ class DB:
 
     def add_user(self, email: str, hashed_password: str) -> User:
         """add_user
+        returns a User object
         """
         if not email or not hashed_password:
             return None
@@ -42,6 +43,7 @@ class DB:
 
     def find_user_by(self, **kwargs) -> User:
         """find_user_by
+        returns a User object
         """
         if not kwargs or not kwargs.keys():
             raise InvalidRequestError
@@ -50,4 +52,3 @@ class DB:
             return session.query(User).filter_by(**kwargs).one()
         except Exception:
             raise NoResultFound
-        
