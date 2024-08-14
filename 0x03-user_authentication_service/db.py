@@ -41,7 +41,7 @@ class DB:
         return user
     
     def find_user_by(self, **kwargs) -> User:
-        """
+        """find user by filtering the db
         """
         if not kwargs:
             return
