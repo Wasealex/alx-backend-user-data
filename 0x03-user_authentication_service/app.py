@@ -64,7 +64,7 @@ def logout() -> str:
     if not user:
         abort(403)
     AUTH.destroy_session(user.id)
-    return redirect('/')
+    return jsonify({"message": "Bienvenue"})
 
 
 if __name__ == "__main__":
